@@ -13,7 +13,8 @@
       <label for="email" id="labelEmail">Email</label>
        <input id="email" v-model="inputEmail" type="text">
       
-       <label for="pass">Password</label><button class="visibility" v-on:click="changeVisibility"><i class="fa fa-eye" aria-hidden="true"></i></button>
+       <label for="pass">Password</label><button class="visibility" v-on:click="changeVisibility">x</button>
+       <!-- <i class="fa fa-eye" aria-hidden="true"></i> -->
        <input id="pass" v-model="inputPass" v-bind:type="visible">
 
 
@@ -95,7 +96,7 @@ body{
   width:900px;
   margin: 0 auto;
   background-color: #dfe0e3;
-  height: 400px;
+  height: 430px;
   
 
   
