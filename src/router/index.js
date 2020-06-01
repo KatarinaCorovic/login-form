@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Contact from '../views/Contact.vue'
+import Basic from '../views/Basic.vue'
+import Admin from '../views/Basic.vue'
 
 Vue.use(VueRouter)
 
@@ -23,6 +25,16 @@ Vue.use(VueRouter)
   path: '/contact',
   name: 'Contact',
   component: Contact
+},
+{
+  path:'/basic',
+  name:'Basic',
+  component:Basic
+},
+{
+path:'/admin',
+name:'Admin',
+component:Admin
 }
 ]
 

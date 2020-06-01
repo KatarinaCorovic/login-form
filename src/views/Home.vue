@@ -10,14 +10,14 @@
      <div class="right">
 
      
-      <label for="email">Email</label>
+      <label for="email" id="labelEmail">Email</label>
        <input id="email" v-model="inputEmail" type="text">
       
-       <label for="pass">Password</label><button v-on:click="changeVisibility">x</button>
+       <label for="pass">Password</label><button class="visibility" v-on:click="changeVisibility"><i class="fa fa-eye" aria-hidden="true"></i></button>
        <input id="pass" v-model="inputPass" v-bind:type="visible">
 
 
-       <div v-if="hasError">{{ error }}</div>
+       <div class="error" v-if="hasError">{{ error }}</div>
        <button class="login" v-on:click="validate">Log in</button>
        </div>
        </div>
@@ -39,8 +39,10 @@ export default {
   },
   data:function(){
     return{
-      email:"katarina@hehe.com",
-      pass:"secret",
+      basicEmail:"katarina@basic.com",
+      basicPass:"basic",
+      adminEmail:"katarina@admin.com",
+      adminPass:"admin",
       inputEmail:"",
       inputPass:"",
       visible: "password",
@@ -58,15 +60,24 @@ export default {
 
     },
     validate:function(){
-      if(this.inputEmail === this.email && this.inputPass === this.pass) {
-        this.$router.push({path:'/about'});
+      if(this.inputEmail === this.basicEmail && this.inputPass === this.basicPass) {
+        this.$router.push({path:'/basic'});
 
       } else{
         this.hasError = true;
 
       }
 
-    }
+    },
+
+    validateAdmin:function(){
+      if(this.inputEmail === this.adminEmail && this.inputPass === this.adminPass) {
+        this.$router.push({path:'/admin'});
+
+      } else{
+        this.hasError = true;
+  }
+}
   }
 }
 </script>
@@ -94,8 +105,8 @@ body{
   height:180px;
   background-color: #fff;
   position: relative;
-  margin-left: -50px;
-  margin-top:100px;
+  margin-left: -200px;
+  margin-top:120px;
   text-align: left;
   
   // margin-top: 200px;
@@ -103,23 +114,22 @@ body{
 
   h1{
     padding-left:20px;
-      padding-top: 20px;
+      padding-top: 10px;
       color:#000;
     
   }
   p{
-    font-size:12px;
+    font-size:15px;
     padding-left:20px;
     color:#a1aaaa;
-  
   
   }
 
 }
 
 .right{
-  width:240px;
-  height: 240px;
+  width:250px;
+  height: 250px;
   background-color: #32475c;
   position: absolute;
   left:800px;
@@ -129,44 +139,62 @@ body{
  
 
   label{
-    color:#6a7c89;
-    font-size:12px; 
     display:inline-block;
-    
-    
+    color:#b9c5ce;
+    font-size:12px; 
+    // padding-top: 30px;
+    margin-left:-110px;
+    margin-top: 20px;
   }
+  #labelEmail{
+     margin-left:-150px;
 
-  input{
+  }
+    
+   input{
+    display:block;
     background-color:#32475c ;
+    width:175px;
+    height:25px;
     border:none;
-    color:#9da6ad;
-    margin-top:20px;
- 
-
+    box-shadow: 0px 0px 1px 1px #6a7c89;
+    color:#9fa6ad;
+    margin-left: 35px;  
+    margin-top: 10px;
+    
+  }
+  .visibility{
+    
+    background-color:#32475c;
+    border:none;
+    color:#9fa6ad;
+    font-weight: bold;
+    font-size:15px;
+    cursor: pointer;
   }
 
-   #email{
-     margin-top:30px;
-   } 
-
-   #pass{
-     margin-top:50px;
-
-
-   }
 
    .login{
-     width:170px;
+     width:180px;
      height: 40px;
      background-color: #fff;
      border:none;
-     margin-top:50px;
+     margin-top:20px;
+     cursor: pointer;
+   }
+
+   .error{
+     color:#860c0c;
+     padding-top:5px;
+    //  font-size: 15px;
+
    }
 
 }
+}
 
 }
-}
+
 
 
 
