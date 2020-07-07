@@ -6,7 +6,19 @@
        <h1>Login</h1>
       <p>By logging in you agree to the ridicoulously long terms that you didn't botherto read.</p>   
        </div>
+       
+       <div class="admin">
+       <h4>Admin page: </h4>   
+        <p> Email: katarina@admin.com; </p>
+          <p> Password: admin; </p>
+      
+       </div>
 
+       <div class="basic">
+           <h4>Basic page</h4>
+           <p>Email: katarina@basic.com</p>
+           <p>Password: basic</p>
+       </div>
      <div class="right">
 
      
@@ -35,7 +47,7 @@ import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'Home',
-  components: {
+  components: { 
     HelloWorld
   },
   data:function(){
@@ -55,6 +67,7 @@ export default {
     changeVisibility: function(){
       if(this.visible === "password") {
         this.visible = "text";
+        
       }else {
         this.visible = "password";
       }
@@ -77,8 +90,9 @@ export default {
 
       } else{
         this.hasError = true;
-  }
-}
+        
+      }
+    }
   }
 }
 </script>
@@ -99,6 +113,19 @@ body{
   height: 430px;
   
 
+  .basic{
+
+    margin-right:350px;
+    margin-top:-84px;
+    font-size:12px;
+  }
+
+  .admin{
+    margin-right:700px;
+    font-size: 12px;
+    margin-top:30px;
+    
+  }
   
 .left{
   display: inline-block;
